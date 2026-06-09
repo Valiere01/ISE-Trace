@@ -146,7 +146,7 @@ python scripts/run_generation.py --concurrent 4
 
 Output:
 - raw sessions → `output/sessions/`
-- training-ready OpenAI format → `output/middle_format/`
+- training-ready OpenAI format → `output/middle_format/` (the directory keeps the `middle_format` name; its contents are in OpenAI messages format)
 
 > **Prerequisite:** Stage 2+3 requires a working local [OpenClaw](https://github.com/openclaw/openclaw) installation (or its Docker setup) as the execution substrate. See the `openclaw_gen_data` README for container deployment and search-provider configuration. The paradigm is agent-system-agnostic — any platform supporting live tool execution and workspace isolation can serve as the substrate.
 

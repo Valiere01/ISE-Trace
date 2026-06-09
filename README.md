@@ -146,7 +146,7 @@ python scripts/run_generation.py --concurrent 4
 
 输出：
 - 原始 session → `output/sessions/`
-- 可训练的 OpenAI format → `output/middle_format/`
+- 可训练的 OpenAI format → `output/middle_format/`（目录名沿用 `middle_format`，内容即 OpenAI messages 格式）
 
 > **前置条件：** Stage 2+3 需要本机有可用的 [OpenClaw](https://github.com/openclaw/openclaw)（或其 Docker 部署）作为执行底座。搜索 provider 配置与容器部署见 `openclaw_gen_data` 的 README。该范式与具体 Agent 系统无关——任何支持「真实工具执行 + workspace 隔离」的平台都可作为执行底座。
 
