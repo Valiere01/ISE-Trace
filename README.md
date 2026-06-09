@@ -13,13 +13,13 @@
 
 </div>
 
-> **Paper:** link
+> **Paper:** coming soon
 >
 > **The intent creator:** https://github.com/NairongZheng/intent_creator
 >
 > **The agent loop gen data pipeline:** https://github.com/NairongZheng/openclaw_gen_data
 >
-> **The dataset:** huggingface link
+> **The dataset:** coming soon
 
 ---
 
@@ -52,11 +52,24 @@
 ISE-Trace 是总入口（umbrella）项目。整条流水线按阶段拆成两个子仓库：
 
 ```
-        ┌──────────────────────────┐             ┌────────────────────────────────────┐
-        │   intent_creator         │             │   openclaw_gen_data                │
-  ───►  │   Stage 1: 4D 意图构造   │   ──────►   │   Stage 2+3: 多轮模拟 + 执行落地   │  ───►  ISETrace
-        └──────────────────────────┘             └────────────────────────────────────┘
+   intent_creator                    openclaw_gen_data
+  +-------------------+              +-------------------+
+  |  [1] Intent       |   intents    |  [2] Simulate     |
+  |                   |   .jsonl     |      role-locked  |
+  |  Persona x Domain | -----------> |  [3] Execute      |
+  |  x Task x Complex |              |      real OS exec |
+  +-------------------+              +---------+---------+
+       Stage I                       Stage S+E |
+                                               v
+                                         +-----------+
+                                         |  ISETrace |
+                                         |  23,132   |
+                                         +-----------+
 ```
+
+> **[1] Intent** — `intent_creator`：在 `Persona x Domain x Task x Complexity` 上采样 4D 结构化意图。
+> **[2] Simulate** + **[3] Execute** — `openclaw_gen_data`：role-locked 多轮模拟，每个工具调用在真实 OS 上隔离执行。
+> 产出 **ISETrace**：23,132 条多轮、执行落地的轨迹。
 
 | 仓库 | 角色 | 链接 |
 |------|------|------|

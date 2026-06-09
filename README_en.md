@@ -13,13 +13,13 @@ English · [简体中文](README.md)
 
 </div>
 
-> **Paper:** link
+> **Paper:** coming soon
 >
 > **The intent creator:** https://github.com/NairongZheng/intent_creator
 >
 > **The agent loop gen data pipeline:** https://github.com/NairongZheng/openclaw_gen_data
 >
-> **The dataset:** huggingface link
+> **The dataset:** coming soon
 
 ---
 
@@ -52,11 +52,24 @@ The resulting corpus, **ISETrace**, contains **23,132** multi-turn trajectories 
 ISE-Trace is the umbrella project. The pipeline is split across two repositories, one per phase:
 
 ```
-        ┌─────────────────────────────────────┐             ┌───────────────────────────────────────────┐
-        │   intent_creator                    │             │   openclaw_gen_data                       │
-  ───►  │   Stage 1: 4D Intent Construction   │   ──────►   │   Stage 2+3: Multi-Turn Sim + Execution   │  ───►  ISETrace
-        └─────────────────────────────────────┘             └───────────────────────────────────────────┘
+   intent_creator                    openclaw_gen_data
+  +-------------------+              +-------------------+
+  |  [1] Intent       |   intents    |  [2] Simulate     |
+  |                   |   .jsonl     |      role-locked  |
+  |  Persona x Domain | -----------> |  [3] Execute      |
+  |  x Task x Complex |              |      real OS exec |
+  +-------------------+              +---------+---------+
+       Stage I                       Stage S+E |
+                                               v
+                                         +-----------+
+                                         |  ISETrace |
+                                         |  23,132   |
+                                         +-----------+
 ```
+
+> **[1] Intent** — `intent_creator`: samples 4D structured intents over `Persona x Domain x Task x Complexity`.
+> **[2] Simulate** + **[3] Execute** — `openclaw_gen_data`: role-locked multi-turn simulation, every tool call run on a real OS in isolation.
+> Produces **ISETrace**: 23,132 multi-turn, execution-grounded trajectories.
 
 | Repository | Role | Link |
 |------------|------|------|
