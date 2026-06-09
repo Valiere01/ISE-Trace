@@ -13,17 +13,17 @@
 
 </div>
 
-> **Paper:** link（暂时先放着）
+> **Paper:** link
 >
 > **The intent creator:** https://github.com/NairongZheng/intent_creator
 >
 > **The agent loop gen data pipeline:** https://github.com/NairongZheng/openclaw_gen_data
 >
-> **The dataset:** huggingface link（暂时先放着）
+> **The dataset:** huggingface link
 
 ---
 
-## 这是什么
+## 概述
 
 训练一个能干活的 OS Agent，需要的数据要同时具备三个属性：**结构化的用户意图**、**多轮任务委派**、**真实落地的工具执行**——而现有数据集几乎都缺这些。多数合成流程从 API 目录出发反推任务（任务分布因此镜像工具空间，而非用户真正想要什么），是单轮的，并且用模拟代替真实的工具调用。
 
@@ -52,11 +52,10 @@
 ISE-Trace 是总入口（umbrella）项目。整条流水线按阶段拆成两个子仓库：
 
 ```
-                 ┌─────────────────────────┐         ┌──────────────────────────────────┐
-   4D 采样        │     intent_creator      │ intents │        openclaw_gen_data         │   轨迹
-  ─────────────► │  Stage 1: 4D 意图构造    │ ──────► │  Stage 2+3: 多轮模拟 + 执行落地  │ ─────────────►  ISETrace
-                 │                         │ .jsonl  │                                  │  (middle format)
-                 └─────────────────────────┘         └──────────────────────────────────┘
+        ┌──────────────────────────┐             ┌────────────────────────────────────┐
+        │   intent_creator         │             │   openclaw_gen_data                │
+  ───►  │   Stage 1: 4D 意图构造   │   ──────►   │   Stage 2+3: 多轮模拟 + 执行落地   │  ───►  ISETrace
+        └──────────────────────────┘             └────────────────────────────────────┘
 ```
 
 | 仓库 | 角色 | 链接 |

@@ -13,17 +13,17 @@ English · [简体中文](README.md)
 
 </div>
 
-> **Paper:** link (coming soon)
+> **Paper:** link
 >
 > **The intent creator:** https://github.com/NairongZheng/intent_creator
 >
 > **The agent loop gen data pipeline:** https://github.com/NairongZheng/openclaw_gen_data
 >
-> **The dataset:** huggingface link (coming soon)
+> **The dataset:** huggingface link
 
 ---
 
-## What is this
+## Overview
 
 Training a capable OS agent requires data that simultaneously captures **structured user intents**, **multi-turn task delegation**, and **grounded tool execution** — properties largely absent from existing datasets. Most synthesis pipelines start from an API catalog and back-derive tasks (so the task distribution mirrors the tool space rather than what users actually want), are single-turn, and simulate tool calls instead of running them.
 
@@ -52,11 +52,10 @@ The resulting corpus, **ISETrace**, contains **23,132** multi-turn trajectories 
 ISE-Trace is the umbrella project. The pipeline is split across two repositories, one per phase:
 
 ```
-                 ┌─────────────────────────┐         ┌──────────────────────────────────┐
-   4D sampling   │     intent_creator      │ intents │        openclaw_gen_data         │  trajectories
-  ─────────────► │  Stage 1: 4D Intent     │ ──────► │  Stage 2+3: Multi-Turn Simulation│ ─────────────►  ISETrace
-                 │       Construction      │ .jsonl  │       + Execution Grounding      │   middle format
-                 └─────────────────────────┘         └──────────────────────────────────┘
+        ┌─────────────────────────────────────┐             ┌───────────────────────────────────────────┐
+        │   intent_creator                    │             │   openclaw_gen_data                       │
+  ───►  │   Stage 1: 4D Intent Construction   │   ──────►   │   Stage 2+3: Multi-Turn Sim + Execution   │  ───►  ISETrace
+        └─────────────────────────────────────┘             └───────────────────────────────────────────┘
 ```
 
 | Repository | Role | Link |
