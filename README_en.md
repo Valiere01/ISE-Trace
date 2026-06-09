@@ -69,7 +69,7 @@ ISE-Trace is the umbrella project. The pipeline is split across two repositories
 | Repository | Role | Link |
 |------------|------|------|
 | **`intent_creator`** | **Stage 1.** Domain-based 4D intent generation. Samples `Persona × Domain × Task × Complexity` and renders each structured tuple into a natural-language user intent via an LLM. | [github.com/NairongZheng/intent_creator](https://github.com/NairongZheng/intent_creator) |
-| **`openclaw_gen_data`** | **Stage 2 + 3.** Drives a local [OpenClaw](https://github.com/openclaw/openclaw) agent through multi-turn, role-locked user simulation; executes every tool call against a real OS in an isolated worker workspace; archives full sessions and converts them to training-ready *middle format*. | [github.com/NairongZheng/openclaw_gen_data](https://github.com/NairongZheng/openclaw_gen_data) |
+| **`openclaw_gen_data`** | **Stage 2 + 3.** Drives a local [OpenClaw](https://github.com/openclaw/openclaw) agent through multi-turn, role-locked user simulation; executes every tool call against a real OS in an isolated worker workspace; archives full sessions and converts them to training-ready *OpenAI format*. | [github.com/NairongZheng/openclaw_gen_data](https://github.com/NairongZheng/openclaw_gen_data) |
 
 ---
 
@@ -146,7 +146,7 @@ python scripts/run_generation.py --concurrent 4
 
 Output:
 - raw sessions → `output/sessions/`
-- training-ready middle format → `output/middle_format/`
+- training-ready OpenAI format → `output/middle_format/`
 
 > **Prerequisite:** Stage 2+3 requires a working local [OpenClaw](https://github.com/openclaw/openclaw) installation (or its Docker setup) as the execution substrate. See the `openclaw_gen_data` README for container deployment and search-provider configuration. The paradigm is agent-system-agnostic — any platform supporting live tool execution and workspace isolation can serve as the substrate.
 
@@ -198,7 +198,7 @@ openclaw_gen_data/            ← Stage 2 + 3  (separate repo)
 ├── scripts/run_generation.py #  main entry point
 ├── scripts/init_agents.py    #  worker init + runtime probe
 ├── src/                      #  agent runtime, session parser, converter, ...
-├── data_examples/            #  sample intents, session, middle format
+├── data_examples/            #  sample intents, session, OpenAI format
 └── docs/                     #  architecture, run-modes, deployment
 ```
 
