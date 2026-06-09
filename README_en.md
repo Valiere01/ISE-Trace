@@ -52,19 +52,14 @@ The resulting corpus, **ISETrace**, contains **23,132** multi-turn trajectories 
 ISE-Trace is the umbrella project. The pipeline is split across two repositories, one per phase:
 
 ```
-   intent_creator                    openclaw_gen_data
-  +-------------------+              +-------------------+
-  |  [1] Intent       |   intents    |  [2] Simulate     |
-  |                   |   .jsonl     |      role-locked  |
-  |  Persona x Domain | -----------> |  [3] Execute      |
-  |  x Task x Complex |              |      real OS exec |
-  +-------------------+              +---------+---------+
-       Stage I                       Stage S+E |
-                                               v
-                                         +-----------+
-                                         |  ISETrace |
-                                         |  23,132   |
-                                         +-----------+
+   intent_creator              openclaw_gen_data
+  +-------------------+        +-------------------+        +-----------+
+  | [1] Intent        | intents| [2] Simulate      |        |           |
+  |                   | .jsonl | [3] Execute       |        |  ISETrace |
+  | Persona x Domain  |------->| role-locked sim   |------->|  23,132   |
+  | x Task x Complex  |        | + real OS exec    |        |  traj.    |
+  +-------------------+        +-------------------+        +-----------+
+        Stage I                   Stage S + E                  output
 ```
 
 > **[1] Intent** — `intent_creator`: samples 4D structured intents over `Persona x Domain x Task x Complexity`.

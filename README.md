@@ -52,19 +52,14 @@
 ISE-Trace 是总入口（umbrella）项目。整条流水线按阶段拆成两个子仓库：
 
 ```
-   intent_creator                    openclaw_gen_data
-  +-------------------+              +-------------------+
-  |  [1] Intent       |   intents    |  [2] Simulate     |
-  |                   |   .jsonl     |      role-locked  |
-  |  Persona x Domain | -----------> |  [3] Execute      |
-  |  x Task x Complex |              |      real OS exec |
-  +-------------------+              +---------+---------+
-       Stage I                       Stage S+E |
-                                               v
-                                         +-----------+
-                                         |  ISETrace |
-                                         |  23,132   |
-                                         +-----------+
+   intent_creator              openclaw_gen_data
+  +-------------------+        +-------------------+        +-----------+
+  | [1] Intent        | intents| [2] Simulate      |        |           |
+  |                   | .jsonl | [3] Execute       |        |  ISETrace |
+  | Persona x Domain  |------->| role-locked sim   |------->|  23,132   |
+  | x Task x Complex  |        | + real OS exec    |        |  轨迹     |
+  +-------------------+        +-------------------+        +-----------+
+        Stage I                   Stage S + E                  output
 ```
 
 > **[1] Intent** — `intent_creator`：在 `Persona x Domain x Task x Complexity` 上采样 4D 结构化意图。
