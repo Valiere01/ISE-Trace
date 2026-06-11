@@ -11,20 +11,13 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](#)
 
-[![arXiv](https://img.shields.io/badge/arXiv-2606.11520-b31b1b.svg?logo=arxiv&logoColor=white)](https://arxiv.org/abs/2606.11520)
-[![HuggingFace Dataset](https://img.shields.io/badge/%F0%9F%A4%97%20Dataset-ISETrace-ffcc4d.svg)](https://huggingface.co/datasets/valiere/ISETrace)
-[![intent_creator](https://img.shields.io/badge/GitHub-intent__creator-181717.svg?logo=github)](https://github.com/NairongZheng/intent_creator)
-[![openclaw_gen_data](https://img.shields.io/badge/GitHub-openclaw__gen__data-181717.svg?logo=github)](https://github.com/NairongZheng/openclaw_gen_data)
-
 </div>
 
-> **Paper:** https://arxiv.org/abs/2606.11520
->
-> **The intent creator:** https://github.com/NairongZheng/intent_creator
->
-> **The agent loop gen data pipeline:** https://github.com/NairongZheng/openclaw_gen_data
->
-> **The dataset:** https://huggingface.co/datasets/valiere/ISETrace
+- 📄 **论文:** [arXiv:2606.11520](https://arxiv.org/abs/2606.11520)
+- 🛠️ **流水线（总入口）:** https://github.com/Valiere01/ISE-Trace
+- 🧩 **Stage 1 — 意图构造:** https://github.com/NairongZheng/intent_creator
+- ⚙️ **Stage 2+3 — 模拟 + 执行:** https://github.com/NairongZheng/openclaw_gen_data
+- 🤗 **数据集:** https://huggingface.co/datasets/valiere/ISETrace
 
 ---
 
