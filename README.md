@@ -13,13 +13,13 @@
 
 </div>
 
-> **Paper:** coming soon
+> **Paper:** https://arxiv.org/abs/2606.11520
 >
 > **The intent creator:** https://github.com/NairongZheng/intent_creator
 >
 > **The agent loop gen data pipeline:** https://github.com/NairongZheng/openclaw_gen_data
 >
-> **The dataset:** coming soon
+> **The dataset:** https://huggingface.co/datasets/valiere/ISETrace
 
 ---
 
@@ -210,11 +210,13 @@ openclaw_gen_data/            ← Stage 2 + 3（独立仓库）
 
 ```bibtex
 @misc{isetrace2026,
-  title        = {From Intent to Trajectory: Execution-Grounded Multi-Turn Data Synthesis for OS Agents},
-  author       = {Valiere01},
-  year         = {2026},
-  howpublished = {\url{https://github.com/Valiere01/ISE-Trace}},
-  note         = {Paper link forthcoming}
+  title         = {From Intent to Trajectory: Execution-Grounded Multi-Turn Data Synthesis for OS Agents},
+  author        = {Valiere01},
+  year          = {2026},
+  eprint        = {2606.11520},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL},
+  url           = {https://arxiv.org/abs/2606.11520}
 }
 ```
 
