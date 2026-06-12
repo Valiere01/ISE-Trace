@@ -1,6 +1,8 @@
 <div align="center">
 
-# ISE-Trace
+<img src="assets/logo.svg" width="720" alt="ISE-Trace">
+
+<br>
 
 **An agentic data pipeline, smarter and broader.**
 

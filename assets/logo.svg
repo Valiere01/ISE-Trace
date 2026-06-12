@@ -1,0 +1,60 @@
+<svg width="880" height="240" viewBox="0 0 880 240" fill="none" xmlns="http://www.w3.org/2000/svg" font-family="Georgia, 'Times New Roman', 'Nimbus Roman', serif">
+  <defs>
+    <linearGradient id="gP" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#2E5C9A"/><stop offset="1" stop-color="#2E5C9A"/>
+    </linearGradient>
+    <linearGradient id="gD" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#4C9A52"/><stop offset="1" stop-color="#2E5C9A"/>
+    </linearGradient>
+    <linearGradient id="gT" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#7E6BB5"/><stop offset="1" stop-color="#2E5C9A"/>
+    </linearGradient>
+    <linearGradient id="gC" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#E08A3C"/><stop offset="1" stop-color="#2E5C9A"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#2E5C9A" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#2E5C9A" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="topbar" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#2E5C9A"/><stop offset="0.4" stop-color="#4C9A52"/>
+      <stop offset="0.7" stop-color="#7E6BB5"/><stop offset="1" stop-color="#E08A3C"/>
+    </linearGradient>
+  </defs>
+
+  <!-- card -->
+  <rect x="10" y="18" width="860" height="204" rx="20" fill="#FBFCFE" stroke="#E2E8F2" stroke-width="1.5"/>
+  <rect x="10" y="18" width="860" height="6" rx="3" fill="url(#topbar)"/>
+
+  <!-- converging curves -->
+  <g fill="none" stroke-width="3" stroke-linecap="round" opacity="0.9">
+    <path d="M84 64 C162 64 192 110 233 118" stroke="url(#gP)"/>
+    <path d="M84 107 C166 107 196 116 233 119" stroke="url(#gD)"/>
+    <path d="M84 150 C166 150 196 124 233 121" stroke="url(#gT)"/>
+    <path d="M84 193 C162 193 192 130 233 122" stroke="url(#gC)"/>
+  </g>
+
+  <!-- source nodes P D T C -->
+  <g font-size="15" font-weight="bold" fill="#FFFFFF" text-anchor="middle">
+    <circle cx="70" cy="64" r="15" fill="#2E5C9A"/><text x="70" y="69">P</text>
+    <circle cx="70" cy="107" r="15" fill="#4C9A52"/><text x="70" y="112">D</text>
+    <circle cx="70" cy="150" r="15" fill="#7E6BB5"/><text x="70" y="155">T</text>
+    <circle cx="70" cy="193" r="15" fill="#E08A3C"/><text x="70" y="198">C</text>
+  </g>
+
+  <!-- intent node -->
+  <circle cx="255" cy="120" r="36" fill="url(#glow)"/>
+  <circle cx="255" cy="120" r="24" fill="#2E5C9A" stroke="#FFFFFF" stroke-width="2.5"/>
+  <text x="255" y="130" font-size="27" font-style="italic" fill="#FFFFFF" text-anchor="middle">i</text>
+
+  <!-- output arrow -->
+  <line x1="282" y1="120" x2="304" y2="120" stroke="#94A3B8" stroke-width="2.4" stroke-linecap="round"/>
+  <path d="M304 114 L314 120 L304 126 Z" fill="#94A3B8"/>
+
+  <!-- wordmark -->
+  <text x="338" y="116" font-size="56" font-weight="bold" fill="#1A2B47" letter-spacing="0.5">ISE-Trace</text>
+  <text x="340" y="152" font-size="21" font-style="italic">
+    <tspan fill="#2E5C9A">Intent</tspan><tspan fill="#94A3B8"> → </tspan><tspan fill="#4C9A52">Simulate</tspan><tspan fill="#94A3B8"> → </tspan><tspan fill="#E08A3C">Execute</tspan>
+  </text>
+  <text x="341" y="180" font-size="13" fill="#64748B" letter-spacing="0.3">Execution-grounded multi-turn OS-agent trajectories</text>
+</svg>
